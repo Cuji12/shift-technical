@@ -27,12 +27,16 @@
 </template>
 
 <script setup>
-import { ref, onMounted, computed } from 'vue'
+import { onMounted, computed } from 'vue'
 import axios from 'axios'
-import { useRouter } from 'vue-router'
+import { useRouter, useRoute } from 'vue-router'
 
 const router = useRouter()
-const isHomePage = computed(() => router.currentRoute._value.name === 'home')
+const route = useRoute()
+
+const isHomePage = computed(() => {
+    return route.name === 'home'
+})
 
 // Logout
 const logout = async () => {

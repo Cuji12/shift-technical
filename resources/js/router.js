@@ -43,8 +43,7 @@ const routes = [
     },
     {
         path: "/:pathMatch(.*)*",
-        name: "not-found",
-        component: () => import("./Pages/NotFound.vue"),
+        redirect: "/"
     },
 ];
 
