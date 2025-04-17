@@ -4,14 +4,14 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class LoginRequest extends FormRequest
+class TaskRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return true;
+        return false;
     }
 
     /**
@@ -22,9 +22,9 @@ class LoginRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'email' => 'required|email',
-            'password' => 'required',
-            'remember_me' => 'required|boolean'
+            'title' => 'required|max:255',
+            'content' => 'required',
+            'background_colour' => 'sometimes|hex_color'
         ];
     }
 
@@ -35,10 +35,10 @@ class LoginRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'email.required' => 'Please enter your email',
-            'email.email' => 'Please enter a valid email',
-            'password.required' => 'Please enter your password',
-            'remember_me' => 'Hey, stop messing with the client!'
+            'title.required' => 'Please enter a title',
+            'title.max:255' => 'Max character limit is 255, please enter a shorter title',
+            'content.required' => 'Please enter some content',
+            'background_colour.hex_color' => 'Please enter a valid hex code'
         ];
     }
 }

@@ -13,10 +13,12 @@ return new class extends Migration
     {
         Schema::create('tasks', function (Blueprint $table) {
             $table->id();
-            $table->string('title')->after('id');
-            $table->text('content')->after('title');
-            $table->string('background_colour')->after('content');
+            $table->string('title');
+            $table->text('content');
+            $table->string('background_colour')->nullable();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->timestamps();
+
         });
     }
 

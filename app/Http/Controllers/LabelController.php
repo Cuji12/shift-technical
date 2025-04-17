@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\TaskRequest;
-use App\Http\Requests\UpdateTaskRequest;
-use App\Models\Task;
+use App\Http\Requests\LabelRequest;
+use App\Http\Requests\UpdateLabelRequest;
+use App\Models\Label;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 
-class TaskController extends Controller
+class LabelController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,7 +21,7 @@ class TaskController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(TaskRequest $request)
+    public function store(LabelRequest $request)
     {
         Gate::authorize('create');
     }
@@ -28,16 +29,16 @@ class TaskController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateTaskRequest $request, Task $task)
+    public function update(UpdateLabelRequest $request, Label $label)
     {
-        Gate::authorize('update', $task);
+        Gate::authorize('update', $label);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Task $task)
+    public function destroy(Request $request, Label $label)
     {
-        Gate::authorize('destroy', $task);
+        Gate::authorize('delete', $label);
     }
 }
