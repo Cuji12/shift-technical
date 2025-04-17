@@ -16,6 +16,8 @@ class LabelController extends Controller
     public function index()
     {
         Gate::authorize('viewAny');
+
+
     }
 
     /**
