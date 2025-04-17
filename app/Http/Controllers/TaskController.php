@@ -28,7 +28,7 @@ class TaskController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateTaskRequest $request, Task $task)
+    public function update(TaskRequest $request, Task $task)
     {
         Gate::authorize('update', $task);
     }

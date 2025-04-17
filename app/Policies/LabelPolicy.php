@@ -19,11 +19,9 @@ class LabelPolicy
     /**
      * Determine whether the user can view the model.
      */
-    public function view(User $user, Label $label): Response
+    public function view(User $user, Label $label): bool
     {
-        return $user->id === $label->user_id
-            ? Response::allow()
-            : Response::deny("This label ain't yours!");
+        return false;
     }
 
     /**

@@ -29,7 +29,7 @@ class LabelController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateLabelRequest $request, Label $label)
+    public function update(LabelRequest $request, Label $label)
     {
         Gate::authorize('update', $label);
     }
