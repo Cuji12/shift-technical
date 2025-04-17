@@ -9,6 +9,17 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class LabelFactory extends Factory
 {
+    private array $labels = [
+        'Work',
+        'Personal',
+        'Technology',
+        'News',
+        'Family',
+        'Money',
+        'Sport',
+        'Miscellaneous'
+    ];
+
     /**
      * Define the model's default state.
      *
@@ -17,7 +28,7 @@ class LabelFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'name' => array_rand($this->labels)
         ];
     }
 }
