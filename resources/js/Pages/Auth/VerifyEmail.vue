@@ -24,13 +24,6 @@
                     {{ loading ? 'Sending...' : 'Resend Verification Email' }}
                 </button>
             </form>
-
-            <button
-                @click="logout"
-                class="mt-4 text-sm text-gray-500 underline hover:text-gray-700 transition"
-            >
-                Log Out
-            </button>
         </div>
     </div>
 </template>
@@ -58,10 +51,5 @@ const resend = async () => {
     } finally {
         loading.value = false
     }
-}
-
-const logout = async () => {
-    await axios.post('/logout')
-    router.push({ name: 'login' })
 }
 </script>

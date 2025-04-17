@@ -32,13 +32,13 @@ import axios from 'axios'
 import { useRouter } from 'vue-router'
 
 const router = useRouter()
-const isHomePage = computed(() => router.name === 'home')
+const isHomePage = computed(() => router.currentRoute._value.name === 'home')
 
 // Logout
 const logout = async () => {
     try {
         await axios.post('/logout')
-        router.push({ name: 'login' }) // Or wherever makes sense
+        router.push({ name: 'login' })
     } catch (err) {
         console.error('Logout failed', err)
     }

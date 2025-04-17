@@ -28,11 +28,11 @@ const routes = [
     {
         path: "/email/verify",
         name: "verify-email",
-        component: () => import("./Pages/Auth/VerifyEmail.vue")
+        component: () => import("./Pages/Auth/VerifyEmail.vue"),
     },
     {
         path: "/email/verify/:id/:hash",
-        name: "verify-email",
+        name: "email-verified",
         component: () => import("./Pages/Auth/EmailVerified.vue")
     },
     {

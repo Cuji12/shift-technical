@@ -101,9 +101,8 @@ const submitRegister = async () => {
         await axios.get('/sanctum/csrf-cookie')
         await axios.post('/register', form.value)
 
-        await router.push({ name: 'verify-email' })
+        router.push({ name: 'verify-email' })
     } catch (err) {
-        console.log(err.response)
         error.value = err.response?.data?.message || 'Registration failed'
     } finally {
         loading.value = false

@@ -13,7 +13,6 @@ router.beforeEach(async (to, from, next) => {
 
     try {
         const res = await axios.get('/api/user')
-        console.log(res.data)
         user = res.data
     } catch {
         user = null
